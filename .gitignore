@@ -1,0 +1,4 @@
+db_config.php
+mailer_config.php
+node_modules/
+vendor/

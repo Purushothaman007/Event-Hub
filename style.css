@@ -1,0 +1,262 @@
+/* === ELYSIAN PRO THEME - A FUSION OF VISION & ENHANCEMENT === */
+
+/* 1. FONT IMPORT & GLOBAL DESIGN TOKENS (VARIABLES) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    /* Enhanced Color Palette */
+    --primary: #5e5ce6;
+    --secondary: #007aff;
+    --primary-glow: rgba(94, 92, 230, 0.15);
+    --bg-main: #f0f2f5;
+    --bg-card: #ffffff;
+    --text-primary: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --border-color: #d2d2d7;
+    --success: #34c759;
+    --danger: #ff3b30;
+    --info: #007aff;
+    --shadow-subtle: 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-medium: 0 10px 25px rgba(0,0,0,0.08);
+    --shadow-strong: 0 15px 35px rgba(94, 92, 230, 0.2);
+    --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary));
+    --gradient-danger: linear-gradient(135deg, #ff3b30, #ff453a);
+    --gradient-info: linear-gradient(135deg, #007aff, #0096ff);
+    --gradient-success: linear-gradient(135deg, #34c759, #30d158);
+    --gradient-secondary: linear-gradient(135deg, #8c9cb0, #6c757d);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 16px; /* Your original font-size */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* 2. ENHANCED HEADER (GLASSMORPHISM) */
+header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .brand {
+    font-size: 1.8rem;
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header nav a {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-secondary);
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--gradient-main);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--primary);
+    background-color: var(--primary-glow);
+}
+
+header nav a:hover::after {
+    width: 80%;
+}
+
+/* 3. DYNAMIC CARDS & BUTTONS */
+.card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--border-color);
+    animation: fadeIn 0.6s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-medium);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn {
+    background: var(--gradient-main);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-strong);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(94, 92, 230, 0.3);
+}
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-danger { background: var(--gradient-danger); box-shadow: 0 5px 15px rgba(255, 59, 48, 0.3); }
+.btn-info { background: var(--gradient-info); box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3); }
+.btn-success { background: var(--gradient-success); box-shadow: 0 5px 15px rgba(52, 199, 89, 0.3); }
+.btn-secondary { background: var(--gradient-secondary); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+
+/* 4. PREMIUM FORMS */
+.form-row {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.form-row label {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+input, textarea, select {
+    background: var(--bg-main);
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+}
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+    background-color: var(--bg-card);
+}
+
+/* 5. VIBRANT INDEX PAGE (FROM YOUR HTML) */
+#hero {
+    padding: 8rem 2rem; text-align: center; color: white;
+    position: relative; overflow: hidden; background: #111;
+}
+#hero::after {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    width: 1500px; height: 1500px;
+    background: radial-gradient(circle, rgba(94,92,230,0.5) 0%, rgba(0,122,255,0.4) 35%, rgba(0,0,0,0) 70%);
+    animation: aurora 15s linear infinite;
+    transform: translate(-50%, -50%);
+}
+@keyframes aurora {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+#hero h1 { font-size: 4rem; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+#hero p { font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); max-width: 650px; margin: 1.5rem auto 2.5rem auto; }
+.login-box { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+
+/* 6. EVENT CARD ENHANCEMENTS (FROM YOUR HTML) */
+.event-card {
+    display: flex; gap: 2rem; align-items: center;
+}
+.event-details { flex: 1; }
+.event-poster-container { flex-basis: 300px; flex-shrink: 0; }
+.event-poster-container img { width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-medium); }
+.btn-group { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-top: 1rem; }
+.btn-group .btn { min-width: 160px; text-align: center; }
+
+/* 7. MODAL & PROFILE ENHANCEMENTS (FROM YOUR HTML) */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(29, 29, 31, 0.7); backdrop-filter: blur(10px);
+    display: none; align-items: center; justify-content: center;
+    z-index: 2000; opacity: 0; transition: opacity 0.3s ease;
+}
+.modal-overlay.active { display: flex; opacity: 1; }
+.modal {
+    background: var(--bg-card); padding: 2.5rem; border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2); width: 100%; max-width: 450px;
+    text-align: center; transform: translateY(20px); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.modal-overlay.active .modal { transform: translateY(0); }
+.modal h2 { margin-bottom: 1rem; color: var(--text-primary); }
+.modal p { color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem; }
+.modal-actions { display: flex; justify-content: center; gap: 1rem; }
+
+.profile-layout { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 3rem; }
+.profile-avatar {
+    width: 150px; height: 150px; border-radius: 50%;
+    background: var(--gradient-main); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif; font-size: 4rem;
+    box-shadow: var(--shadow-strong);
+}
+
+/* 8. TABLE & REPORT ENHANCEMENTS (FROM YOUR HTML) */
+.table {
+    width: 100%; border-collapse: collapse; margin-top: 1.5rem;
+}
+.table th, .table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-color); }
+.table th { background-color: #f9fafb; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.table tr:hover { background-color: #fafbff; }
+.stat-card { text-align: center; }
+.stat-number { font-size: 3.5rem; font-weight: 800; color: var(--primary); margin: 0.5rem 0; }
+
+/* 9. RESPONSIVE DESIGN (FROM YOUR HTML) */
+@media (max-width: 992px) {
+    .login-box, .grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .event-card, .profile-layout { flex-direction: column; }
+    .header nav { display: none; }
+}
+
